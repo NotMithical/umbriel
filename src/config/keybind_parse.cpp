@@ -845,7 +845,7 @@ namespace umbriel {
         if (nitsError != std::errc{}
             || nitsPtr != nitsText.data() + nitsText.size()
             || !std::isfinite(nits)
-            || nits < 80.0
+            || nits < 10.0
             || nits > 1000.0
             || (slash != std::string_view::npos && target.empty())) {
           break;

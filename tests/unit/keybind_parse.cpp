@@ -616,7 +616,7 @@ UMBRIEL_TEST(parsesOutputSdrWhiteAction) {
   CHECK(std::fabs(sdrWhiteOf(bind) - 120.5) < 1e-9);
   CHECK_EQ(outputOf(bind), std::string{"vendor/panel"});
 
-  CHECK(parseAction("output-sdr-white:80", bind));
+  CHECK(parseAction("output-sdr-white:10", bind));
   CHECK(parseAction("output-sdr-white:1000", bind));
 }
 
@@ -625,7 +625,7 @@ UMBRIEL_TEST(rejectsMalformedOutputSdrWhiteArguments) {
   CHECK(!parseAction("output-sdr-white", bind));      // no level
   CHECK(!parseAction("output-sdr-white:", bind));     // no level
   CHECK(!parseAction("output-sdr-white:200/", bind)); // empty output
-  CHECK(!parseAction("output-sdr-white:79", bind));   // below the configured floor
+  CHECK(!parseAction("output-sdr-white:9", bind));   // below the configured floor
   CHECK(!parseAction("output-sdr-white:1001", bind)); // above the configured ceiling
   CHECK(!parseAction("output-sdr-white:abc", bind));
   CHECK(!parseAction("output-sdr-white:nan", bind));
